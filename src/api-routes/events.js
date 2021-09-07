@@ -9,7 +9,7 @@ router.post('/uploadEvent', (req, res) => {
     .then(result=> res.send(result))
     .catch(err => res.send(err));
   });
-  router.post('/getEvents', (req, res) => {
+  router.get('/getEvents', (req, res) => {
     event.getEvents()
     .then(result=> res.send(result))
     .catch(err => res.send(err));
