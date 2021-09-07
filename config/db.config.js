@@ -2,10 +2,10 @@
 
 // module.exports =() =>{
 //     return mysql.createConnection({
-//         host:'localhost',
-//         user:'root',
-//         password:'',
-//         database:'club_valle_real_website'
+//         host:'us-cdbr-east-04.cleardb.com',
+//         user:'bbed746737b641',
+//         password:'7c1f2418',
+//         database:'heroku_56993ee4b78575c'
 //     });
 // }
 
@@ -53,13 +53,15 @@
 
 const config = {
     connectionLimit: 15,
-    host: 'localhost',
-    user: 'root',
-    password: 'alberto',
-    database: 'club_valle_real_website',
+    host: 'us-cdbr-east-04.cleardb.com',
+    user: 'bbed746737b641',
+    password: '7c1f2418',
+    database: 'heroku_56993ee4b78575c',
     dateStrings: 'date',
     debug: false,
     showQueries: false,
   };
+
+  //:7c1f2418@us-cdbr-east-04.cleardb.com/heroku_56993ee4b78575c?reconnect=true
 
 module.exports = config;
