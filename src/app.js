@@ -51,6 +51,9 @@ const emailEvents = require("./api-routes/email-events");
 app.use("/", emailEvents);
 const events = require("./api-routes/events");
 app.use("/", events);
+app.get('/alberto', (req,res)=>{
+  res.send("Bienvenido Alberto")
+})
 
 // Inicializador de Jobs
 // jobs.start()
