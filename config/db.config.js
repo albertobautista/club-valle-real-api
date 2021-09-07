@@ -52,14 +52,14 @@
 // };
 
 const config = {
-    connectionLimit: 15,
-    host: 'us-cdbr-east-04.cleardb.com',
-    user: 'bbed746737b641',
-    password: '7c1f2418',
-    database: 'heroku_56993ee4b78575c',
-    dateStrings: 'date',
-    debug: false,
-    showQueries: false,
+    connectionLimit: process.env.DB_CONNECTION_LIMIT,
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    dateStrings: process.env.DB_DATE_STRINGS,
+    debug: process.env.DB_DEBUG,
+    showQueries: process.env.DB_SHOW_QUERIES,
   };
 
   //:7c1f2418@us-cdbr-east-04.cleardb.com/heroku_56993ee4b78575c?reconnect=true
