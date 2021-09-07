@@ -47,10 +47,10 @@ app.use(
 
 //Routes
 // app.use(require("./routes/emailEvents"));
-// const emailEvents = require("./api-routes/email-events");
-// app.use("/", emailEvents);
-// const events = require("./api-routes/events");
-// app.use("/", events);
+const emailEvents = require("./api-routes/email-events");
+app.use("/", emailEvents);
+const events = require("./api-routes/events");
+app.use("/", events);
 app.get('/alberto', (req,res)=>{
   res.send("Bienvenido Alberto")
 })
