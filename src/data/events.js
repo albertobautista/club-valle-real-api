@@ -25,6 +25,11 @@ events.insertEvent = fields => {
     })
 };
 
+events.getAllEventsQuery= () =>{
+  return gateway.select("usuarioscorreos");
+
+}
+
 
 
 

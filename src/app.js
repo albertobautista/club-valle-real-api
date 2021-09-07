@@ -49,6 +49,7 @@ app.use(
 // app.use(require("./routes/emailEvents"));
 const emailEvents = require("./api-routes/email-events");
 app.use("/", emailEvents);
+
 const events = require("./api-routes/events");
 app.use("/", events);
 app.get('/alberto', (req,res)=>{
