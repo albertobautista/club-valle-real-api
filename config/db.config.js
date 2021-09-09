@@ -60,6 +60,9 @@ const config = {
     dateStrings: process.env.DB_DATE_STRINGS,
     debug: process.env.DB_DEBUG,
     showQueries: process.env.DB_SHOW_QUERIES,
+    connectTimeout  : 60 * 60 * 1000,
+    acquireTimeout  : 60 * 60 * 1000,
+    timeout         : 60 * 60 * 1000,
   };
 
   //:7c1f2418@us-cdbr-east-04.cleardb.com/heroku_56993ee4b78575c?reconnect=true

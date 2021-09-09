@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "env-cmd -f .env.production node src/app.js",
+    "start": "env-cmd -f .env.production nodemon src/app.js",
     "development": "env-cmd -f .env.development node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,7 +16,7 @@
     "cors": "^2.8.5",
     "cron": "^1.8.2",
     "express": "^4.17.1",
-    "env-cmd":"^9.0.3",
+    "env-cmd": "^9.0.3",
     "joi": "^17.3.0",
     "jsftp": "^2.1.3",
     "moment": "^2.29.1",

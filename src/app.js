@@ -50,8 +50,10 @@ app.use(
 const emailEvents = require("./api-routes/email-events");
 app.use("/", emailEvents);
 
-const events = require("./api-routes/events");
-app.use("/", events);
+const activities = require("./api-routes/activities");
+app.use("/activities", activities);
+
+
 app.get('/alberto', (req,res)=>{
   res.send("Bienvenido Alberto")
 })
