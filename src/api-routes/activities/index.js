@@ -9,5 +9,17 @@ const router = express.Router();
     .then(result=> res.send(result))
     .catch(err => res.send(err));
   });
+
+  router.get('/getSportsActivities', (req, res) => {
+    activities.getSActivities()
+    .then(result=> res.send(result))
+    .catch(err => res.send(err));
+  });
+
+  router.get('/getCulturalActivities', (req, res) => {
+    activities.getCActivities()
+    .then(result=> res.send(result))
+    .catch(err => res.send(err));
+  });
   
 module.exports = router;

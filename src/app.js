@@ -53,6 +53,12 @@ app.use("/", emailEvents);
 const activities = require("./api-routes/activities");
 app.use("/activities", activities);
 
+const gallery = require("./api-routes/gallery");
+app.use("/gallery", gallery);
+
+const restaurant = require("./api-routes/restaurant");
+app.use("/restaurant", restaurant);
+
 
 app.get('/alberto', (req,res)=>{
   res.send("Bienvenido Alberto")
