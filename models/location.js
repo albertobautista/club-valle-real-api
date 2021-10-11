@@ -7,7 +7,7 @@ const queries = require('../db/queries');
 /************************************* Module Implementation ***********************************/
 /***********************************************************************************************/
 
-const ACTIVITIES_KEY    = 'idActivity';
+const ACTIVITIES_KEY    = 'idPlace';
 const STATUS_KEY        = 'status';
 const INACTIVE_STATUS   = 'I';
 const DELETE_STATUS     = 'E';
@@ -17,8 +17,8 @@ const DELETE_STATUS     = 'E';
  * Get all activities
  * @returns 
  */
-async function GetAllActivities() {
-    return queries.FindAll('activity');
+async function GetAllLocations() {
+    return queries.FindAll('places');
 }
 
 /**
@@ -26,11 +26,11 @@ async function GetAllActivities() {
  * @param {any} id Id
  * @returns 
  */
-async function GetActivity(id) {
+async function GetLocation(id) {
     let query   = Object.assign({}, queries.FindByIdQuery);
     query.key   = ACTIVITIES_KEY;
     query.id    = id;
-    return queries.FindById('activity', query);
+    return queries.FindById('places', query);
 }
 
 /**
@@ -38,8 +38,8 @@ async function GetActivity(id) {
  * @param {any} obj Object 
  * @returns 
  */
-async function InsertActivity(obj) {
-    return queries.Insert('activity', obj);
+async function InsertLocation(obj) {
+    return queries.Insert('places', obj);
 }
 
 /**
@@ -48,11 +48,11 @@ async function InsertActivity(obj) {
  * @param {any} obj Object
  * @returns 
  */
-async function UpdateActivity(id, obj) {
+async function UpdateLocation(id, obj) {
     let query   = Object.assign({}, queries.FindByIdQuery);
     query.key   = ACTIVITIES_KEY;
     query.id    = id;
-    return queries.UpdateById('activity', query, obj);
+    return queries.UpdateById('places', query, obj);
 }
 
 /**
@@ -60,14 +60,14 @@ async function UpdateActivity(id, obj) {
  * @param {any} id Id
  * @returns 
  */
-async function RemoveActivity(id) {
+async function RemoveLocation(id) {
     let query   = Object.assign({}, queries.FindByIdQuery);
     query.key   = ACTIVITIES_KEY;
     query.id    = id;
     let obj     = {
         [STATUS_KEY] : INACTIVE_STATUS
     }
-    return queries.UpdateById('activity', query, obj);
+    return queries.UpdateById('places', query, obj);
 }
 
 /***********************************************************************************************/
@@ -75,9 +75,9 @@ async function RemoveActivity(id) {
 /***********************************************************************************************/
 
 module.exports = {
-    GetAllActivities,
-    GetActivity,
-    InsertActivity,
-    UpdateActivity,
-    RemoveActivity
+    GetAllLocations,
+    GetLocation,
+    InsertLocation,
+    UpdateLocation,
+    RemoveLocation
 }

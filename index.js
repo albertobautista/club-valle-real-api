@@ -51,6 +51,13 @@ router.post(    '/event',           upload.single('image'),           imageMiddl
 router.patch(   '/event/:id',       upload.single('image'),           imageMiddleware,  dbController.UpdateEvent);
 router.delete(  '/event/:id',                                                           dbController.RemoveEvent);
 
+// Locations
+router.get(     '/location',                                                               dbController.GetAllLocations);
+router.get(     '/location/:id',                                                           dbController.GetLocation);
+router.post(    '/location',           upload.single('image'),           imageMiddleware,  dbController.InsertLocation);
+router.patch(   '/location/:id',       upload.single('image'),           imageMiddleware,  dbController.UpdateLocation);
+router.delete(  '/location/:id',                                                           dbController.RemoveLocation);
+
 /***********************************************************************************************/
 /******************************************** Exports ******************************************/
 /***********************************************************************************************/

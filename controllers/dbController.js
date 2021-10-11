@@ -3,6 +3,8 @@
 /***********************************************************************************************/
 const activity  = require('../models/activity');
 const event     = require('../models/events');
+const location     = require('../models/location');
+
 const debug     = require('debug')('dbController');
 
 /***********************************************************************************************/
@@ -260,6 +262,128 @@ async function RemoveEvent(req, res, next) {
     })
 }
 
+// Location
+
+/**
+ * Get all activities
+ * @param {*} req Request
+ * @param {*} res Response
+ * @param {*} next Next
+ */
+ async function GetAllLocations(req, res, next) {
+    location.GetAllLocations()
+    .then((data) => {
+        debug(data);
+        res.status(200).json(data);
+    })
+    .catch((err) => {
+        debug(err);
+        res.status(500).json(err);
+    })
+}
+
+/**
+ * Get an activity by it's id
+ * @param {*} req Request
+ *                URL Params:
+ *                /:id
+ * @param {*} res Response
+ * @param {*} next Next
+ */
+async function GetLocation(req, res, next) {
+    let { id } = req.params;
+    location.GetLocation(id)
+    .then((data) => {
+        debug(data);
+        res.status(200).json(data);
+    })
+    .catch((err) => {
+        debug(err);
+        res.status(500).json(err);
+    })
+}
+
+/**
+ * Insert a new activity
+ * @param {*} req Request
+ *                Body:
+ *                {
+ *                      "idEvent":          number,
+ *                      "title":            string,
+ *                      "description":      string,
+ *                      "image":            string,
+ *                      "date":             string,
+ *                      "status":           string,
+ *                }
+ * @param {*} res Response
+ * @param {*} next Next
+ */
+async function InsertLocation(req, res, next) {
+    let obj = req.body;
+    location.InsertLocation(obj)
+    .then((data) => {
+        debug(data);
+        res.status(200).json(data);
+    })
+    .catch((err) => {
+        debug(err);
+        res.status(500).json(err);
+    })
+}
+
+/**
+ * Update an existing activity
+ * @param {*} req Request
+ *                URL Params:
+ *                /:id
+ *                Body:
+ *                {
+ *                      "idEvent":          number,
+ *                      "title":            string,
+ *                      "description":      string,
+ *                      "image":            string,
+ *                      "date":             string,
+ *                      "status":           string,
+ *                }
+ * @param {*} res Response
+ * @param {*} next Next
+ */
+async function UpdateLocation(req, res, next) {
+    let { id } = req.params;
+    let obj = req.body;
+    console.log(obj)
+    location.UpdateLocation(id, obj)
+    .then((data) => {
+        debug(data);
+        res.status(200).json(data);
+    })
+    .catch((err) => {
+        debug(err);
+        res.status(500).json(err);
+    })
+}
+
+/**
+ * Removes an activity
+ * @param {*} req Request
+ *                URL Params:
+ *                /:id
+ * @param {*} res Response
+ * @param {*} next Next
+ */
+async function RemoveLocation(req, res, next) {
+    let { id } = req.params;
+    location.RemoveLocation(id)
+    .then((data) => {
+        debug(data);
+        res.status(200).json(data);
+    })
+    .catch((err) => {
+        debug(err);
+        res.status(500).json(err);
+    })
+}
+
 
 /***********************************************************************************************/
 /******************************************** Exports ******************************************/
@@ -277,5 +401,11 @@ module.exports = {
     GetEvent,
     InsertEvent,
     UpdateEvent,
-    RemoveEvent
+    RemoveEvent,
+    // Locations
+    GetAllLocations,
+    GetLocation,
+    InsertLocation,
+    UpdateLocation,
+    RemoveLocation
 }
