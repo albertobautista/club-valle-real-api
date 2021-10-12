@@ -38,6 +38,8 @@ app.use(cors());
 app.use('/api', router);
 
 // Activity
+router.get(     '/test',                                                            dbController.GetTest);
+
 router.get(     '/activity',                                                            dbController.GetAllActivities);
 router.get(     '/activity/:id',                                                        dbController.GetActivity);
 router.post(    '/activity',        upload.single('principalImage'),  imageMiddleware,  dbController.InsertActivity);
@@ -57,6 +59,20 @@ router.get(     '/location/:id',                                                
 router.post(    '/location',           upload.single('image'),           imageMiddleware,  dbController.InsertLocation);
 router.patch(   '/location/:id',       upload.single('image'),           imageMiddleware,  dbController.UpdateLocation);
 router.delete(  '/location/:id',                                                           dbController.RemoveLocation);
+
+// Teachers
+router.get(     '/teacher',                                                               dbController.GetAllTeachers);
+router.get(     '/teacher/:id',                                                           dbController.GetTeacher);
+router.post(    '/teacher',                                                               dbController.InsertTeacher);
+router.patch(   '/teacher/:id',                                                           dbController.UpdateTeacher);
+router.delete(  '/teacher/:id',                                                           dbController.RemoveTeacher);
+
+// Carousel Images
+router.get(     '/carouselImage',                                                               dbController.GetAllCarouselImages);
+router.get(     '/carouselImage/:id',                                                           dbController.GetCarouselImage);
+router.post(    '/carouselImage',         upload.single('image'),           imageMiddleware,    dbController.InsertCarouselImage);
+router.patch(   '/carouselImage/:id',     upload.single('image'),           imageMiddleware,    dbController.UpdateCarouselImage);
+router.delete(  '/carouselImage/:id',                                                           dbController.RemoveCarouselImage);
 
 /***********************************************************************************************/
 /******************************************** Exports ******************************************/

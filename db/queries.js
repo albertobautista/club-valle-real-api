@@ -78,9 +78,9 @@ function Insert(table, obj) {
  * @returns 
  */
 function UpdateById(table, query, obj) {
-    console.log("table2", table)
-    console.log("QUERY2", query)
-    console.log("obj2", obj)
+    console.log("table UpdateById", table)
+    console.log("QUERY UpdateById", query)
+    console.log("obj UpdateById", obj)
 
     return new Promise((res, rej) => {
         manager.pool.query(GetUpdateQuery(table, query, obj), (err, results, fields) => {
@@ -148,22 +148,37 @@ function GetInsertQuery(table, obj) {
  * @returns 
  */
  function GetUpdateQuery(table, query, obj) {
+    console.log("table GetUpdateQuery", table)
+    console.log("QUERY GetUpdateQuery", query)
+    console.log("obj UpdatGetUpdateQueryeById", obj)
+
     let ret     = `UPDATE ${table} SET `;
     let cols    = [];
     let vals    = [];
     let values  = '';
 
     GetAllProperties(obj, cols, vals);
+    console.log("cols UpdatGetUpdateQueryeById", cols)
 
     // Create query
     if (cols.length > 0) {
-        for (let i = 0; i < cols.length - 1; i++) {
-            values = cols[i] + ' = ' + vals[i] + ',';
+    console.log("cols.length UpdatGetUpdateQueryeById", cols.length)
+
+        for (let i = 0; i < cols.length -1 ; i++) {
+            values += cols[i] + ' = ' + vals[i] + ',';
+            console.log("values UpdatGetUpdateQueryeById", values)
+
         }
-        values = cols[cols.length - 1] + ' = ' + vals[vals.length - 1];
+        console.log("values2 UpdatGetUpdateQueryeById", values)
+
+        values += cols[cols.length - 1] + ' = ' + vals[vals.length - 1];
+        // console.log("values2 UpdatGetUpdateQueryeById", values)
+
     }
+    console.log("values3 UpdatGetUpdateQueryeById", values)
     
     ret += values + ` WHERE ${query.key}=${query.id}`;
+    console.log("ret UpdatGetUpdateQueryeById", ret)
 
     return ret;
 }
